@@ -3,9 +3,8 @@ import java.util.Scanner;
 public class GameLoader {
 
  
-    public void loadGame(){
+    public void loadGame(Scanner scanner){
 
-        Scanner scanner = new Scanner(System.in);
 
         //Display name of game
         System.out.println("MINESWEEPER GAME");
@@ -18,21 +17,20 @@ public class GameLoader {
 
             System.out.println("Starting the game...");
 
-            startGame();
+            // startGame();
 
         } else {
 
             System.out.println("Invalid input. Please type 'start' to begin game");
         }
 
-        scanner.close();
 
     }
 
-    public void startGame(){
+    // public void startGame(){
 
-        System.out.println("This will call another class that creates the grid");
-        System.out.println("Game under construction");
-    }
+    //     System.out.println("This will call another class that creates the grid");
+    //     System.out.println("Game under construction");
+    // }
     
 }

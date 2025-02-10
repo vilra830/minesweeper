@@ -44,17 +44,23 @@ public static void placeMines() {
     }
 }
 
-    public static void startGame() {
+    public static void startGame(Scanner userInput) {
         boolean gameover = false;
 
-        Scanner userInput = new Scanner(System.in);
 
 
         while(!gameover){
 
+        
+
         System.out.println("Please put it 2 numbers separated by space between 0 and 9 ");
 
+
+        if(userInput.hasNextInt()){
         int row = userInput.nextInt();
+
+        if(userInput.hasNextInt()){
+
         int col = userInput.nextInt();
 
         //check input if out of bounds
@@ -69,26 +75,33 @@ public static void placeMines() {
 
             System.out.println("YOU HIT A MINE! GAMEOVER");
             gameover = true;
+            break;
 
 
+        } else {
+
+            System.out.println("Safe keep playing!");
         }
-
-
+    } else {
+        // If the second value isn't an integer, consume the invalid input and prompt again
+        System.out.println("Invalid input! Please enter two integers separated by a space.");
+        userInput.nextLine();  // Consume the invalid input
     }
+} else {
+    // If the first value isn't an integer, consume the invalid input and prompt again
+    System.out.println("Invalid input! Please enter two integers separated by a space.");
+    userInput.nextLine();  // Consume the invalid input
+}
+}
 
-
-
-        userInput.close();
-
-        
-
-
-        
-    }
+// Close the scanner after the game ends
+userInput.close();
+}
+}
  
 
 
-}
+
 
 
 
