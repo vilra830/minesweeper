@@ -47,8 +47,6 @@ public static void placeMines() {
     public static void startGame(Scanner userInput) {
         boolean gameover = false;
 
-
-
         while(!gameover){
 
         
@@ -85,17 +83,43 @@ public static void placeMines() {
     } else {
         // If the second value isn't an integer, consume the invalid input and prompt again
         System.out.println("Invalid input! Please enter two integers separated by a space.");
-        userInput.nextLine();  // Consume the invalid input
     }
 } else {
     // If the first value isn't an integer, consume the invalid input and prompt again
     System.out.println("Invalid input! Please enter two integers separated by a space.");
-    userInput.nextLine();  // Consume the invalid input
 }
 }
 
 // Close the scanner after the game ends
 userInput.close();
+}
+    //this checks the adjancent 8 cells around the selected cell for example
+
+public static int countSurroundingMines(int row, int col){
+
+    int mines = 0;
+
+
+// first lopp checks the top left , then top, then top right, then left , right  
+    for(int rowOffSet = -1 ; rowOffSet <= 1 ; rowOffSet++) {
+
+        for (int colOffSet = -1 ; colOffSet <=1 ; colOffSet++){
+            int newRow = row + rowOffSet;
+            int newCol = col + colOffSet;
+
+            //ensure it newRow and newCol wont get out of bounds
+            if (newRow >= 0 && newRow < gridSize && newCol >= 0 && newCol < gridSize){
+
+                //
+                if(grid[newRow][newCol] == '*'){
+                    mines++;
+                }
+            }
+
+        }
+    }
+    return mines;
+
 }
 }
  
