@@ -11,9 +11,11 @@ public class Minesweeper {
 
         gameLoader.loadGame();
 
+        MinesweeperGrid.placeMines();
         MinesweeperGrid.displayBoard();
+        MinesweeperGrid.startGame();
 
 
-    }
     
+}
 }
