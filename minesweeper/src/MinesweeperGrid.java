@@ -7,8 +7,10 @@ private static final int gridSize = 10;
 private static final int numOfMines = 10;
 private static char [][] grid = new char [gridSize][gridSize];
 private static boolean [][] revealed = new boolean [gridSize][gridSize] ; 
+private static final int cellWidth = 4;
 
 public static void displayBoard() {
+
     System.out.println("Minesweeper board");
 
     for(int i = 0 ; i < gridSize ; i++){
@@ -16,7 +18,7 @@ public static void displayBoard() {
         for(int j = 0 ; j < gridSize ; j ++){
             // grid[i][j] = "";
 
-            System.out.print("[" +  grid[i][j] + "]");
+            System.out.print(String.format("[%" + cellWidth + "s]", grid[i][j]));
 
         }
         System.out.println();
@@ -29,6 +31,12 @@ public static void placeMines() {
 
     Random rand = new Random();
     int minesPlaced = 0; 
+    // Initialize the grid with empty spaces first
+    for (int i = 0; i < gridSize; i++) {
+        for (int j = 0; j < gridSize; j++) {
+            grid[i][j] = ' ';  // ' ' denotes an empty space
+        }
+    }
 
     while (minesPlaced < numOfMines){
         int row = rand.nextInt(gridSize);
