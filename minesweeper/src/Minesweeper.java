@@ -17,19 +17,6 @@ public class Minesweeper {
         MinesweeperGrid.displayBoard();
         MinesweeperGrid.startGame(gameScanner);
 
-// try (Scanner inputScanner = new Scanner(System.in)) {
-//     System.out.println("Please enter another input");
-//     int input = inputScanner.nextInt();
-//     System.out.println(input);
-
-    
-// } catch (Exception e) {
-//     // TODO: handle exception
-//     System.out.println(e.getMessage());
-// }
-
-// }
-// // inputScanner.close();
 
 gameScanner.close();
 
